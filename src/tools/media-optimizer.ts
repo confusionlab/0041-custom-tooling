@@ -296,7 +296,8 @@ async function convertFile(item: FileItem) {
 
   const data = await ffmpeg.readFile(outputFileName)
   const mimeType = item.type === 'image' ? 'image/webp' : 'video/webm'
-  item.outputBlob = new Blob([data], { type: mimeType })
+  const blobData = data instanceof Uint8Array ? new Uint8Array(data) : data
+  item.outputBlob = new Blob([blobData], { type: mimeType })
 
   // Cleanup
   await ffmpeg.deleteFile(inputName)
