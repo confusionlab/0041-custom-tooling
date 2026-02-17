@@ -122,6 +122,44 @@ body {
   gap: 0.5rem;
 }
 
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.zoom-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.zoom-toggle-btn,
+.zoom-btn {
+  border: 1px solid #444;
+  background: var(--bg-light);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.zoom-toggle-btn:hover,
+.zoom-btn:hover {
+  border-color: var(--accent);
+}
+
+.zoom-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.zoom-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
 .timeline {
   position: relative;
   height: 40px;
@@ -137,6 +175,23 @@ body {
   border-radius: 4px;
   pointer-events: none;
   opacity: 0.3;
+}
+
+.zoom-window {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.timeline-container.zoom-disabled .zoom-window,
+.timeline-container.zoom-disabled .zoom-label,
+.timeline-container.zoom-disabled .zoom-buttons,
+.timeline-container.zoom-disabled .timeline-detail {
+  display: none;
 }
 
 .markers-container {
